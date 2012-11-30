@@ -1,0 +1,18 @@
+/* SCSS helpers */
+@import "bourbon";
+@import "neat";
+
+// Reset CSS from Meyer Web
+@import "reset";
+
+// The main stylesheet for the app
+@import "style";
+
+// Specific styles for the category pages
+@import "categories";
+
+// Specific styles for the product pages
+@import "products";
+
+// Admin styling
+@import "admin_style";

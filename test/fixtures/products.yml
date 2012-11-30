@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  url_segment: MyString
+  published_status: 1
+  subcode: MyString
+  description: MyText
+  strapline: MyString
+  meta_keywords: MyString
+  meta_description: MyString
+
+two:
+  name: MyString
+  url_segment: MyString
+  published_status: 1
+  subcode: MyString
+  description: MyText
+  strapline: MyString
+  meta_keywords: MyString
+  meta_description: MyString

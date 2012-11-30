@@ -1,0 +1,34 @@
+#product {
+	#product-intro {
+		margin: 5px;
+	}
+
+	#images {
+		@include span-columns(6);
+		img {
+			@include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+		}
+	}
+
+	#variants {
+		@include span-columns(6);
+		
+
+		.variant-tile {
+			@include clearfix;
+
+			margin-bottom: 10px;
+			background-color: #aaeeee;
+			padding: 10px;
+
+			.sku-and-description {
+				@include span-columns(4 of 6);
+			}
+
+			.buy {
+				@include span-columns(2 of 6);
+				text-align: right;
+			}
+		}
+	}
+}

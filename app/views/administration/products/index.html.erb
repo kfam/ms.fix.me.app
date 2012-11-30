@@ -1,0 +1,29 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Subcode</th>
+    <th>Url segment</th>
+    <th>Published status</th>
+    <th>Categories</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr class='<%= cycle("odd", "even") %>'>
+    <td><%= link_to(product.name, administration_product_path(product)) %></td>
+    <td><%= product.subcode %></td>
+    <td><%= product.url_segment %></td>
+    <td><%= published_status(product.published_status) %></td>
+    <td><%= raw(product.categories.published.map{ |c| category_link(c) }.join ('</br />')) %></td>
+    <td><%= link_to 'Edit', edit_administration_product_path(product) %></td>
+    <td><%= link_to 'Destroy', administration_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_administration_product_path %>

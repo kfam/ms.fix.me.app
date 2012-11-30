@@ -1,0 +1,49 @@
+<%= form_for(@variant, :url => administration_variants_path) do |f| %>
+  <% if @variant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@variant.errors.count, "error") %> prohibited this variant from being saved:</h2>
+
+      <ul>
+      <% @variant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sku %>
+    <%= f.text_field :sku %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :weight_in_grams %>
+    <%= f.number_field :weight_in_grams %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :bay %>
+    <%= f.text_field :bay %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_level_total %>
+    <%= f.number_field :stock_level_total %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_level_reserved %>
+    <%= f.number_field :stock_level_reserved %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

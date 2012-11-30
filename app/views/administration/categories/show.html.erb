@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
+
+<p>
+  <b>Url segment:</b>
+  <%= @category.url_segment %>
+</p>
+
+<p>
+  <b>Published status:</b>
+  <%= @category.published_status %>
+</p>
+
+<p>
+  <b>Parent category:</b>
+  <%= @category.parent_category_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @category.description %>
+</p>
+
+<p>
+  <b>Meta keywords:</b>
+  <%= @category.meta_keywords %>
+</p>
+
+<p>
+  <b>Meta description:</b>
+  <%= @category.meta_description %>
+</p>
+
+<%= render :partial => 'administration/published_status_actions', :locals => {:model => @category } %>
+
+<%= link_to 'Edit', edit_administration_category_path(@category) %> |
+<%= link_to 'Back', administration_categories_path %>

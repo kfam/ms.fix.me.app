@@ -1,0 +1,14 @@
+<div class='product-tile'>
+	<div class='image-and-title'>
+		<div class='image'>
+			<%= image_tag('missing_image_100_67.gif') %>
+		</div>
+		<div class='title'>
+			<%= link_to(product.name, product) %>
+		</div>
+	</div>
+	<div class='strapline'>
+		<%= product.strapline %><br />
+		<%= pluralize(product.variants.size, 'variant') %>
+	</div>
+</div>

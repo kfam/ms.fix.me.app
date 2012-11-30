@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MsFixMeApp - Administration</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id='admin-content'>
+			<div id='header'>
+				<div id='title'>
+					<%= link_to raw('Amozan.com - Administration'), '/administration' %>
+				</div>
+				<div id='navigation'>
+					<ul>
+						<li><%= link_to 'Categories', administration_categories_path %></li>
+						<li><%= link_to 'Products', administration_products_path %></li>
+						<li><%= link_to 'Variants', administration_variants_path %></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id='main-body'>
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>

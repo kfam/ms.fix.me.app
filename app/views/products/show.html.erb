@@ -1,0 +1,29 @@
+<div id='product'>
+	<div id='product-intro'>
+		<h1><%= @product.name %></h1>
+		<%= @product.description %><br />
+		<%= @product.name %> has <%= pluralize(@product.variants.size, "wonderful variant") %> to choose from.
+	</div>
+	<div id='images'>
+		<%= image_tag('missing_image.gif') %>
+	</div>
+
+	<div id='variants'>
+		<% @product.variants.each do |variant| %>
+			<div class='variant-tile'>
+				<div class='sku-and-description'>
+					<%= variant.sku %><br />
+					<%= variant.description %>
+					<small>(<%= variant.stock_level_available %> available)</small>
+				</div>
+				<div class='buy'>
+					<% if variant.buyable? %>
+						<input type='submit' class='buy-button' value='BUY' />
+					<% else %>
+						<input type='submit' class='buy-button' value='BUY' disabled='true' />
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

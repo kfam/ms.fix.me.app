@@ -1,0 +1,3 @@
+class VariantsController < ShowController
+  
+end

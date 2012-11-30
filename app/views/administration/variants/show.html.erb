@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sku:</b>
+  <%= @variant.sku %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @variant.product_id %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @variant.price %>
+</p>
+
+<p>
+  <b>Weight in grams:</b>
+  <%= @variant.weight_in_grams %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @variant.description %>
+</p>
+
+<p>
+  <b>Bay:</b>
+  <%= @variant.bay %>
+</p>
+
+<p>
+  <b>Stock level total:</b>
+  <%= @variant.stock_level_total %>
+</p>
+
+<p>
+  <b>Stock level reserved:</b>
+  <%= @variant.stock_level_reserved %>
+</p>
+
+
+<%= link_to 'Edit', edit_administration_variant_path(@variant) %> |
+<%= link_to 'Back', administration_variants_path %>

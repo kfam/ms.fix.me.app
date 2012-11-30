@@ -1,0 +1,106 @@
+#admin-content {
+	@include outer-container;
+
+	background-color: #8EE5FF;
+
+	#header {
+		padding-top: 10px;
+		text-align: center;
+
+		#title {
+			font-size: 20px;
+			a {
+				color: inherit;
+				text-decoration: none;
+				&:hover {
+					background-color: white;
+				}
+			}
+		}
+
+		#navigation {
+			margin-bottom: 10px;
+
+			li {
+				display: inline;
+				font-size: 12px;
+
+				.current {
+					font-weight: bold;
+					color: red;
+				}
+			}
+		}
+	}
+
+	#main-body {
+		padding: 10px;
+		
+		.product-tile {
+			@include span-columns(3);
+			@include nth-omega(4n);
+			@include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+
+			margin-bottom: 20px;
+			height: 180px;
+			
+			background-color: #eeeebb;
+
+			padding: 20px;
+
+			&:hover {
+				background-color: #eeaaee;
+			}
+
+			.image-and-title {
+				.image {
+					float: left;
+				}
+
+				.title {
+					float: left;
+					padding-left: 5px;
+				}
+				@include clearfix;
+			}
+			.strapline {
+				text-shadow: 2px 2px 2px rgba(255, 255, 255, 1);
+			}
+		}
+
+		table {
+			width: 100%;
+
+			.odd {
+				background-color: #8EE5AA;
+				&:hover {
+					background-color: white;
+				}
+			}
+			.even {
+				background-color: #8EE5FF;
+				&:hover {
+					background-color: yellow;
+				}
+			}
+		}
+	}
+
+	.field {
+		@include clearfix;
+		margin-bottom: 10px;
+		label {
+			display: block;
+			float: left;
+			width: 200px;
+		}
+
+		input {
+			display: block;
+			float: left;
+		}
+	}
+	input[type="submit"] {
+		@include button(shiny, #00FF00);
+	}
+}

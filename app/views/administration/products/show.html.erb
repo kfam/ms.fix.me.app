@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Url segment:</b>
+  <%= @product.url_segment %>
+</p>
+
+<p>
+  <b>Published status:</b>
+  <%= published_status(@product.published_status) %>
+</p>
+
+<p>
+  <b>Subcode:</b>
+  <%= @product.subcode %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Strapline:</b>
+  <%= @product.strapline %>
+</p>
+
+<p>
+  <b>Meta keywords:</b>
+  <%= @product.meta_keywords %>
+</p>
+
+<p>
+  <b>Meta description:</b>
+  <%= @product.meta_description %>
+</p>
+
+<%= render :partial => 'administration/published_status_actions', :locals => {:model => @product } %>
+
+<%= link_to 'Edit', edit_administration_product_path(@product) %> |
+<%= link_to 'Back', administration_products_path %>

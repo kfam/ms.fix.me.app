@@ -1,0 +1,5 @@
+<div>
+	<% @products.each do |product| %>
+		<%= render :partial => '/product-tile', :locals => { :product => product } %>
+	<% end %>
+</div>

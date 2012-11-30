@@ -1,0 +1,15 @@
+<% if model.archivable? %>
+	<%= button_to('Archive', :action => :archive, :klass => model.class.name) %>
+<% end %>
+<% if model.unarchiveable? %>
+	<%= button_to('Unarchive', :action => :unarchive, :klass => model.class.name) %>
+<% end %>
+<% if model.publishable? %>
+	<%= button_to('Publish', :action => :publish, :klass => model.class.name) %>
+<% end %>
+<% if model.removable? %>
+	<%= button_to('Delete', :action => :remove, :klass => model.class.name) %>
+<% end %>
+<% if model.undeleteable? %>
+	<%= button_to('Undelete', :action => :undelete, :klass => model.class.name) %>
+<% end %>

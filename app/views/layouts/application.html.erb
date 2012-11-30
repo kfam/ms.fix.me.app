@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MsFixMeApp</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id='content'>
+			<div id='header'>
+				<div id='title'>
+					<%= link_to 'Amozan.com', '/' %>
+				</div>
+
+				<div id='navigation'>
+					<% parent = @category ? (@category.parent ? @category.parent : @category) : nil %>
+					<ul>
+						<% @root_categories.each do |category| %>
+							<% klass = parent == category ? 'current' : '' %>
+							<%= content_tag(:li, link_to(category.name, category, :class => klass)) %>
+						<% end %>
+					</ul>
+					<% if parent %>
+						<ul>
+							<% parent.children.published.each do |child| %>
+								<% klass = @category == child ? 'current' : '' %>
+								<%= content_tag(:li, link_to(child.name, child, :class => klass)) %>
+							<% end %>
+						</ul>
+					<% end %>
+				</div>
+			</div>
+
+			<div id='main-body'>
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>
