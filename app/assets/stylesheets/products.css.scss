@@ -5,14 +5,35 @@
 
 	#images {
 		@include span-columns(6);
+		@include media($narrow) {
+			@include span-columns(3 of 3);
+		}
+		@include media($mobile) {
+			@include span-columns(1 of 1);
+		}
+
 		img {
 			@include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+			@include span-columns(6 of 6);
+			@include media($narrow) {
+				@include span-columns(3 of 3);
+			}
+			@include media($mobile) {
+				@include span-columns(1 of 1);
+			}
 		}
 	}
 
 	#variants {
 		@include span-columns(6);
 		
+		@include media($narrow) {
+			@include span-columns(3 of 3);
+		}
+
+		@include media($mobile) {
+			@include span-columns(1 of 1);
+		}
 
 		.variant-tile {
 			@include clearfix;
@@ -23,11 +44,28 @@
 
 			.sku-and-description {
 				@include span-columns(4 of 6);
+				@include media($narrow) {
+					background-color: red;
+					@include span-columns(2 of 3);
+				}
+
+				@include media($mobile) {
+					background-color: yellow;
+					@include span-columns(1 of 1);
+				}
 			}
 
 			.buy {
 				@include span-columns(2 of 6);
 				text-align: right;
+
+				@include media($narrow) {
+					@include span-columns(1 of 3);
+				}
+
+				@include media($mobile) {
+					@include span-columns(1 of 1);
+				}
 			}
 		}
 	}

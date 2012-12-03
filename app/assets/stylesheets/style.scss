@@ -15,8 +15,21 @@ small {
   	@include button(shiny, #ff0000);
 }
 
+$narrow: new-breakpoint(max-width 720px 6);
+$mobile: new-breakpoint(max-width 360px 3);
+
 #content {
 	@include outer-container;
+
+	@include media($narrow) {
+		@include span-columns(6);
+	}
+
+	@include media($mobile) {
+		@include span-columns(3);
+	}
+
+
 
 	#header {
 		padding-top: 10px;
@@ -54,6 +67,17 @@ small {
 		.product-tile {
 			@include span-columns(3);
 			@include nth-omega(4n);
+
+			@include media($narrow) {
+				@include span-columns(3);
+				@include nth-omega(2n);
+			}
+
+			@include media($mobile) {
+				@include span-columns(3);
+				@include nth-omega(1n);
+			}
+
 			@include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
 
 			margin-bottom: 20px;
