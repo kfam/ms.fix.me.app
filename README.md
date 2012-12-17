@@ -20,7 +20,7 @@ Create a database called 'ms.fix.me.app_development'
 
 Then either create a user with write permission to the above database called:
 
-ms-dev
+msdev
 password
 
 Or, update the database.yml with user credentials that can connect
