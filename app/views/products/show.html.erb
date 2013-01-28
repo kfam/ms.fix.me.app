@@ -5,9 +5,12 @@
 		<%= @product.name %> has <%= pluralize(@product.variants.size, "wonderful variant") %> to choose from.
 	</div>
 	<div id='images'>
-		<%= image_tag('missing_image.gif') %>
+		<% unless @product.picture.to_s.match(/missing.png/) %>
+			<%= image_tag @product.picture.url(:large) %>
+		<% else %>
+			<%= image_tag('missing_image.gif') %>		  
+		<% end %>
 	</div>
-
 	<div id='variants'>
 		<% @product.variants.each do |variant| %>
 			<div class='variant-tile'>

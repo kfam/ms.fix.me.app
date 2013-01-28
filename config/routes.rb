@@ -1,9 +1,11 @@
 MsFixMeApp::Application.routes.draw do
 
+  get "pages/show_page"
+
   match '/' => 'home#home'
   match '/products/:url_segment' => 'products#show'
   match '/categories/:url_segment' => 'categories#show'
-
+  match '/administration/users/sign_up' => 'pages#show_page'
   namespace :administration do
     match '/' => 'home#home'
     resources :categories do
@@ -16,6 +18,8 @@ MsFixMeApp::Application.routes.draw do
       end
     end
 
+    resources :pages
+
     resources :products do
       member do
         post :archive
@@ -24,10 +28,17 @@ MsFixMeApp::Application.routes.draw do
         post :unarchive
         post :undelete
       end
+      collection do
+        put :archive
+      end
     end
 
     resources :variants
+    
+    devise_for :users, :controllers => { :sessions => "administration/sessions" }
   end
+
+  match "*a", :to => "pages#show_page"
 
     # Sample resource route within a namespace:
   #   namespace :admin do

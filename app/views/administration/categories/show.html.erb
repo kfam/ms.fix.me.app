@@ -34,8 +34,21 @@
   <b>Meta description:</b>
   <%= @category.meta_description %>
 </p>
+<p>
+  <b>Picture:</b><br />
+  <%= image_tag @category.picture.url(:thumb) %>
+</p>
 
 <%= render :partial => 'administration/published_status_actions', :locals => {:model => @category } %>
+
+<% if !@category.products.blank? %>
+	<% @products = @category.products %>
+    <%= render 'administration/products/products' %>
+
+<% else %>
+  
+<% end %>
+
 
 <%= link_to 'Edit', edit_administration_category_path(@category) %> |
 <%= link_to 'Back', administration_categories_path %>

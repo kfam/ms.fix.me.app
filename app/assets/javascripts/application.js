@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require_tree .
+
+// $(function() {
+//   $("#status").live("change", function() {
+//     $.getScript( '/administration/products?status=' + this.value );
+//     return false;
+//   });
+// });

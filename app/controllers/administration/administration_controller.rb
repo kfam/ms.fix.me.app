@@ -1,4 +1,7 @@
 class Administration::AdministrationController < ApplicationController
+
+  before_filter :authenticate_administration_user!
+
 	layout 'administration/application'
 
 	def archive
@@ -40,4 +43,5 @@ class Administration::AdministrationController < ApplicationController
 
 		redirect_to :back
 	end
+	
 end

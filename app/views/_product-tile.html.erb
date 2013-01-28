@@ -1,7 +1,11 @@
 <div class='product-tile'>
 	<div class='image-and-title'>
 		<div class='image'>
-			<%= image_tag('missing_image_100_67.gif') %>
+			<% if product.picture? %>
+				<%= image_tag product.picture.url(:thumb) %>
+				<% else %>
+				<%= image_tag('missing_image_100_67.gif') %>
+			<% end %>
 		</div>
 		<div class='title'>
 			<%= link_to(product.name, product) %>
@@ -10,5 +14,13 @@
 	<div class='strapline'>
 		<%= product.strapline %><br />
 		<%= pluralize(product.variants.size, 'variant') %>
+		<% range = product.variants.map(&:price) %>
+		<br />Also buy: from <%= range.min %> to <%= range.max %>
+		<% for var in product.variants do %>
+			<%= content_tag :div do  %>
+				<%= var.description %>
+				Price: <%= var.price %>
+			<% end %>
+		<% end %>
 	</div>
 </div>

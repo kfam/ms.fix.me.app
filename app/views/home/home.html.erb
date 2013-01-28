@@ -1,3 +1,8 @@
+<% if @chunk_of_text %>
+	<div id="message">
+		<%= @chunk_of_text.content %>
+	</div>
+<% end %>
 <div>
 	<% @products.each do |product| %>
 		<%= render :partial => '/product-tile', :locals => { :product => product } %>

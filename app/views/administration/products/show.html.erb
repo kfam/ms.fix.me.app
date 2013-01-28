@@ -40,6 +40,11 @@
   <%= @product.meta_description %>
 </p>
 
+<p>
+  <b>Picture:</b><br />
+  <%= image_tag @product.picture.url(:thumb) %>
+</p>
+
 <%= render :partial => 'administration/published_status_actions', :locals => {:model => @product } %>
 
 <%= link_to 'Edit', edit_administration_product_path(@product) %> |
