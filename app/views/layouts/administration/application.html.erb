@@ -13,12 +13,23 @@
 					<%= link_to raw('Amozan.com - Administration'), '/administration' %>
 				</div>
 				<div id='navigation'>
+					<% if current_administration_user %>
 					<ul>
 						<li><%= link_to 'Categories', administration_categories_path %></li>
 						<li><%= link_to 'Products', administration_products_path %></li>
 						<li><%= link_to 'Variants', administration_variants_path %></li>
+						<li><%= link_to 'Pages', administration_pages_path %></li>
 					</ul>
+					<% end %>
 				</div>
+				<div id="user">
+					<% if current_administration_user %>
+						<%= link_to "Sign out", destroy_administration_user_session_path, :method => :delete %>
+						<%= link_to "Edit Account", edit_administration_user_registration_path %>
+
+					<% end %>	
+				</div>
+			
 			</div>
 
 			<div id='main-body'>

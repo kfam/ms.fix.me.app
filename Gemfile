@@ -8,6 +8,9 @@ gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'neat'
 gem 'bourbon'
+gem 'paperclip', '~> 3.0'
+gem 'nested_form'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.

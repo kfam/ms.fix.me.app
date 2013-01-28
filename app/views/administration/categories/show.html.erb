@@ -34,6 +34,11 @@
   <b>Meta description:</b>
   <%= @category.meta_description %>
 </p>
+<p>
+  <b>Picture:</b><br />
+  <%= image_tag @category.picture.url(:thumb) %>
+</p>
+
 
 <%= render :partial => 'administration/published_status_actions', :locals => {:model => @category } %>
 

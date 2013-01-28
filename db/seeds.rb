@@ -1,5 +1,4 @@
 
-
 def create_category(name, i, parent_id = nil)
 	Category.create!(
 		:name => name,
@@ -70,5 +69,14 @@ puts "Generating products"
 	end
 	puts "... #{i} done" if i % 100 == 0
 end
-
+puts "Creating user admin@example.com with password 'password'"
+User.create(:email => "admin@example.com", :password => "password")
+puts "Creating 3 pages, 1 for handling administration homepage, 1 for admin message, 1 for about-us"
+pages = []
+pages << {name: "home", content: "This is admin home area"}
+pages << {name: "public home" ,	content: "This is administration message"}
+pages << {name: "about us", content: "This is description of our company"}
+pages.each { |page|
+  Page.create(name: page[:name], content: page[:content])
+}
 puts "Done!"

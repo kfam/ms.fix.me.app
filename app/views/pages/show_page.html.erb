@@ -1,0 +1,7 @@
+<% if @page %>
+	<h1><%= @page.name.capitalize %></h1>
+	<br />
+	<p><%= @page.content %></p>
+<% else %>
+  	<p>It seems we can't find the page you requested</p>
+<% end %>

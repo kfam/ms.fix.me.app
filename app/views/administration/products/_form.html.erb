@@ -1,4 +1,10 @@
-<%= form_for(@product, :url => administration_products_path) do |f| %>
+<% url = {
+	:url => ( @product.new_record? ? administration_products_path : administration_product_path), 
+	:html => { :multipart => true }
+	} 
+%>
+
+<%= nested_form_for(@product, url ) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -39,6 +45,37 @@
     <%= f.label :meta_description %>
     <%= f.text_field :meta_description %>
   </div>
+  <div class="field">
+   	<%= f.label :picture %>
+   	<%= f.file_field :picture %>
+  </div>
+  <div>
+			<div>
+			<span class="unit">Bay</span>
+	   		<span class="desc">Description</span>
+	   		<span class="unit">Price</span>
+	   		<span class="unit">Sku</span>
+	   		<span class="unit">Reserved</span>
+	   		<span class="unit">Total</span>
+	   		<span class="unit">Weight</span>
+			</div>
+	<%= f.fields_for :variants do |variant_form| %>
+			<div>
+			<span><%= variant_form.text_field :bay, size: 10 %></span>
+			<span><%= variant_form.text_field :description, size:20 %></span>
+			<span><%= variant_form.text_field :price, size: 8 %></span>
+			<span><%= variant_form.text_field :sku, size: 8 %></span>
+			<span><%= variant_form.text_field :stock_level_reserved, size: 8%></span>
+			<span><%= variant_form.text_field :stock_level_total, size: 8%></span>
+			<span><%= variant_form.text_field :weight_in_grams, size: 8%></span>
+	  		<span><%= variant_form.link_to_remove "Remove this Variant" %></span>
+			</div>
+	<% end %>
+	<p><%= f.link_to_add "Add a Variant", :variants %></p>
+	
+	
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

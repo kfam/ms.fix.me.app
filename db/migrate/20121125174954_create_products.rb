@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :strapline
       t.string :meta_keywords
       t.string :meta_description
-
+      
       t.timestamps
     end
   end

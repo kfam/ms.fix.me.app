@@ -1,4 +1,10 @@
-<%= form_for(@category, :url => administration_categories_path) do |f| %>
+<% url = {
+	:url => ( @category.new_record? ? administration_categories_path : administration_category_path), 
+	:html => { :multipart => true }
+	} 
+%>
+
+<%= nested_form_for(@category, url ) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -35,7 +41,20 @@
     <%= f.label :meta_description %>
     <%= f.text_field :meta_description %>
   </div>
+  <div class="field">
+   	<%= f.label :picture %>
+   	<%= f.file_field :picture %>
+  </div>
+  <div>
+  	<%= f.fields_for :products do |product_form| %>
+  		<%= product_form.text_field :name %>
+	  	<%= product_form.link_to_remove "Remove this Product" %>
+	<% end %>
+	<p><%= f.link_to_add "Add a Product", :products %></p>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+	
+
 <% end %>
