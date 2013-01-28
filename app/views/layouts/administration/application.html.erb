@@ -22,6 +22,7 @@
 					</ul>
 					<% end %>
 					<% if @product %>
+					<br />
 						<ul>
 							<% unless @product.categories.empty? %>
 								<% @product.categories.each do |category| %>
@@ -40,7 +41,7 @@
 
 					<% end %>	
 				</div>
-			
+						
 			</div>
 			<div id='main-body'>
 				<%= yield %>

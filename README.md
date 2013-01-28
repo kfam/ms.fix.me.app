@@ -57,8 +57,10 @@ with other published statuses (draft, submitted, archived, deleted)
 - Add the price for each variant on the public product page
 - Add a price range for all variants for each product in the 'product_tile' (ignore currency symbols)
 - Add a way of uploading an image to a product or category
+
 - Are there any performance issues that need to be addressed, especially if the site had 10,000's of products - how can this be resolved?
 - Make the administration pages look better
+
 - Add a login page for administration pages
 - Show which categories a product belongs to (think about published statuses)
 - Show which products belong to a category (think about published statuses)
